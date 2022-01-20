@@ -1,0 +1,34 @@
+https://www.interviewbit.com/problems/path-to-given-node/
+
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+bool check(TreeNode* A, vector<int> &v, int B)
+{
+
+    if(A==NULL)
+        return false;
+    
+    v.push_back(A->val);
+    if(A->val==B)
+        return true;
+    if(check(A->left,v,B)||check(A->right,v,B))
+        return true;
+    
+    v.pop_back();
+
+    return false;
+
+}
+vector<int> Solution::solve(TreeNode* A, int B) {
+
+    vector<int> v;
+    if(check(A,v,B))
+        return v;
+}
