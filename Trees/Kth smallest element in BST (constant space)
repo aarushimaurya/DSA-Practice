@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef struct Node
+{
+	int data;
+	struct Node* left;
+	struct Node* right;
+	
+	Node(int val)
+	{
+		data= val;
+		left=right=NULL;
+	}
+}node;
+
+void inorder(Node *root, int &k, int &ans)
+{
+	if(root==NULL||k==0)
+        return;
+
+    inorder(root->left, k, ans);
+    
+    k--;
+
+    if(k==0)
+    	ans=root->data;
+
+    inorder(root->right, k, ans);
+}
+
+int main()
+{
+	int k=6, ans;
+	
+	node* root=new node(21);
+	root->left=new node(15);
+	root->right=new node(42);
+	root->left->left= new node(12);
+	root->left->right=new node(18);
+	root->left->right->left=new node(17);
+	root->left->right->right=new node(20);
+	root->right->left=new node(34);
+	root->right->right=new node(49);
+	root->right->right->left=new node(48);
+	root->right->right->right=new node(50);
+	
+	inorder(root, k, ans);
+	
+	cout<<ans;
+}

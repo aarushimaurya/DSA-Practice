@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+typedef struct Node
+{
+    int data;
+    struct Node *left;
+    struct Node *right;
+
+    Node(int val)
+    {
+        data=val;
+        left=right=NULL;
+    } 
+}node;
+
+void preorder(node* root, int k, int &maxx)
+{
+    if(root==NULL)
+        return;
+
+    cout<<root->data<<" ";
+    
+    if(k>maxx)
+    {
+    	maxx=k;
+	}
+
+    preorder(root->left, k+1, maxx);
+    preorder(root->right, k+1, maxx);
+}
+
+int main()
+{
+	int maxx=-1;
+    node* root= new node(1);
+    root->left= new node(2);
+    root->right= new node(7);
+    root->left->left= new node(3);
+    root->left->right= new node(4);
+    root->left->right->left= new node(15);
+    root->right->right= new node(9);
+    root->right->right->right= new node(10);
+
+    cout<<"Preorder Traversal\n";
+    preorder(root, 0, maxx);
+    
+    cout<<"\nHeight of binary tree is: "<<maxx;
+
+    return 0;
+}
