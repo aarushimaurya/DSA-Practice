@@ -1,0 +1,23 @@
+https://www.interviewbit.com/courses/programming/topics/heaps-and-maps/
+
+vector<int> Solution::solve(vector<vector<int> > &A) {
+
+    vector<int> ans;
+    priority_queue<int, vector<int>, greater<int>> pq;
+
+    for(int i=0; i<A.size(); i++)
+    {
+        for(int j=0; j<A[i].size(); j++)
+        {
+            pq.push(A[i][j]);
+        }
+    }
+
+    while(!pq.empty())
+    {
+        ans.push_back(pq.top());
+        pq.pop();
+    }
+
+    return ans;
+}
