@@ -1,0 +1,33 @@
+https://www.interviewbit.com/problems/merge-k-sorted-lists/
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+ListNode* Solution::mergeKLists(vector<ListNode*> &A) {
+
+    vector<int> B;
+    for(int i=0; i<A.size(); i++)
+    {
+        ListNode* head= A[i];
+        while(head!=NULL)
+        {
+            B.push_back(head->val);
+            head= head->next;
+        }
+    }
+
+    sort(B.begin(), B.end());
+    ListNode *head= new ListNode(B[0]);
+    auto it=head;
+    for(int i=1; i<B.size(); i++)
+    {
+        it->next=new ListNode(B[i]);
+        it= it->next;
+    }
+    return head;
+}
