@@ -1,0 +1,17 @@
+https://www.interviewbit.com/problems/k-largest-elements/
+
+vector<int> Solution::solve(vector<int> &A, int B) {
+
+    vector<int> ans;
+    sort(A.begin(), A.end());
+    int i=A.size()-1;
+    int j=0;
+    while(i>=0 && j<B)
+    {
+        ans.push_back(A[i]);
+        i--;
+        j++;
+    }
+
+    return ans;
+}
