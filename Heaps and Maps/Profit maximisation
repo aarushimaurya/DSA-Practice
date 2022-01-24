@@ -1,0 +1,14 @@
+https://www.interviewbit.com/problems/profit-maximisation/
+
+int Solution::solve(vector<int> &A, int B) {
+
+    int ans=0, j=1;
+    while(j<=B)
+    {
+        sort(A.begin(), A.end());
+        ans= ans+A[A.size()-1];
+        A[A.size()-1]--;
+        j++;
+    }
+    return ans;
+}
