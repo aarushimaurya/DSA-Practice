@@ -1,0 +1,39 @@
+https://leetcode.com/problems/rotate-image/
+
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        
+        int n=matrix.size();
+        
+        //reversing columns
+        
+        for(int i=0; i<n; i++)
+        {
+            int start=0;
+            int end=n-1;
+            
+            while(start<end)
+            {
+                int temp = matrix[start][i];
+                matrix[start][i]= matrix[end][i];
+                matrix[end][i] = temp;
+                
+                start++;
+                end--;
+            } 
+        }
+        
+        //sheesha of diagonal
+        
+        for(int i=0; i<n; i++)
+        {
+            for(int j=0; j<i; j++)
+            {
+                int temp= matrix[i][j];
+                matrix[i][j]= matrix[j][i];
+                matrix[j][i]= temp;
+            }
+        }
+    }
+};
