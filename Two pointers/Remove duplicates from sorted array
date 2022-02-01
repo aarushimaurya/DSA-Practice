@@ -1,0 +1,23 @@
+https://www.interviewbit.com/problems/remove-duplicates-from-sorted-array/
+
+int Solution::removeDuplicates(vector<int> &A) {
+
+    if(A.size()==0)
+        return 0;
+    
+    
+    int i=1, j=1, curr=A[0];
+
+    while(j<A.size())
+    {
+        if(curr!=A[j])
+        {
+            A[i]=A[j];
+            curr=A[i];
+            i++;
+        }
+
+        j++;
+    }
+    return i;
+}

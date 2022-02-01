@@ -1,0 +1,29 @@
+https://www.interviewbit.com/problems/sort-by-color/
+
+void Solution::sortColors(vector<int> &A) {
+
+    int i=0, j=A.size()-1, k=0;
+
+    while(k<=j)
+    {
+        if(A[k]==0)
+        {
+            swap(A[k],A[i]);
+            i++;
+            k++;
+        }
+
+        else if(A[k]==1)
+        {
+            k++;
+        }
+
+        else
+        {
+            swap(A[k], A[j]);
+            j--;
+        }
+
+    }
+}
+
