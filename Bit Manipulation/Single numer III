@@ -1,0 +1,40 @@
+https://leetcode.com/problems/single-number-iii/
+
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+        
+        int all_xor=0;
+        
+        for(int i=0; i<nums.size(); i++)
+        {
+            all_xor= all_xor^nums[i];
+        }
+        
+        int index;
+        
+        for(int i=0; i<31; i++)
+        {
+            if(all_xor & (1<<i))
+                index=i;
+        }
+        
+        int int0=0;
+        int int1=0;
+        
+        for(int i=0; i<nums.size(); i++)
+        {
+            if(nums[i] & (1<<index))
+                int0= int0^nums[i];
+            else
+                int1= int1^nums[i];
+        }
+        
+        vector<int> v;
+        v.push_back(int0);
+        v.push_back(int1);
+        
+        return v;
+        
+    }
+};
