@@ -25,7 +25,7 @@ void preorder(node* root, int k, int &maxx)
     if(k>maxx)
     {
     	maxx=k;
-	}
+    }
 
     preorder(root->left, k+1, maxx);
     preorder(root->right, k+1, maxx);
