@@ -33,7 +33,7 @@ void preorder(node* root, int k, int &maxx)
 
 int main()
 {
-	int maxx=-1;
+    int maxx=-1;
     node* root= new node(1);
     root->left= new node(2);
     root->right= new node(7);
